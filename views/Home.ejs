@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .header .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+    }
+    .header .nav-links li {
+      display: inline;
+    }
+    .header .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+    form input, form button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">UnRL SHORTNER</div>
+    <ul class="nav-links">
+      <li><a href="/urls">Home</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/user/login">Login</a></li>
+      <li><a href="/user/">Sign-up</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <h1>Welcome to URL Shortener</h1>
+    <form method="post" action="/urls">
+      <label for="url">Insert URL:</label>
+      <input type="text" id="url" name="url" placeholder="Insert URL" required />
+      <button type="submit">Submit</button>
+    </form>
+    <% if (urls.length > 0) { %>
+      <ul>
+        <% urls.forEach(url => { %>
+          <li>
+            <strong>Real URL:</strong> <%= url.redirectUrl %><br>
+            <a href="/urls/<%= url.shortUrl %>"><strong>Short URL:</strong> <%= url.shortUrl %></a><br>
+            <strong>Visited history:</strong> <%= url.totalVisits.length == 0 ? "[Not Yet Visited]" : url.totalVisits.length %>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </div>
+</body>
+</html>

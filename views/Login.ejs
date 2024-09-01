@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      position: sticky;
+      top: 0;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .header .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+    }
+    .header .nav-links li {
+      display: inline;
+    }
+    .header .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+    form input, form button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    .auth-card {
+      margin: 20px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">UnRL SHORTNER</div>
+    <ul class="nav-links">
+      <li><a href="/urls">Home</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/user/login">Login</a></li>
+      <li><a href="/user/">Sign-up</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <h2>User Login</h2>
+    <div class="auth-card">
+      <form method="post" action="/user/login">
+        <div>
+          <label for="email">E-mail</label>
+          <input type="email" name="email" id="email" required />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" required />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
